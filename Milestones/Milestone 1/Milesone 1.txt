@@ -1,0 +1,23 @@
+Weekly Project: Messy CSV Reader and Summarizer
+
+Same shape as the original assignment, but with a dataset that fights back. Find or construct a real-world CSV (stock prices, weather, sensor logs, anything numeric) with at least 500 rows, and deliberately make sure it has the kinds of problems real data has.
+Reads a CSV file from disk; path is not hardcoded — passed as a command-line argument or variable at the top
+Prints row count and column names
+For at least two numeric columns: prints min, max, average, and standard deviation (compute std dev manually — no statistics module)
+Uses only the Python standard library — no pandas yet
+Harder-data requirement (new vs. original plan):
+Dataset must contain at least 4 distinct failure modes: missing values, malformed numeric strings (e.g. '$1,200' or '12,000.5'), inconsistent date formats, and at least one fully corrupt row (wrong column count)
+Each failure mode is handled distinctly — not one catch-all skip. Print a categorized warning (e.g. 'missing value', 'unparseable number', 'malformed row') and keep a count of each
+At the end, print a short data-quality summary: total rows, rows successfully processed, rows skipped per failure category
+At least one numeric column requires a light transformation before it's usable (e.g. stripping currency symbols/commas, or normalizing a unit) — write a small parsing function for it, don't hand-fix the source file
+Acceptance Criteria
+☑  Must pass to proceed to Week 2
+☐  Script runs without errors from the command line
+☐  CSV path is not hardcoded
+☐  Row count and column names print correctly
+☐  Min, max, average, std dev are mathematically correct for at least two numeric columns
+☐  All four failure modes present in the data and each is handled and categorized distinctly (not a single generic skip)
+☐  Data-quality summary printed at the end with per-category counts
+☐  Currency/format-cleanup parsing function is separate and reusable, not inlined string-mangling
+☐  Code is readable — sensible variable names, no single-letter variables except loop counters
+☐  No external libraries used
